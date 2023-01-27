@@ -16,6 +16,7 @@
 # Bash Scripts
 
 - [Git Automation](/02_Scripts/gitAutomation.sh)
+- [Creating Readme.md file in all the child folders of a parent folder](/02_Scripts/CreateOneSameFileInAllSubfolders.sh)
 
 ## Last Step
 
