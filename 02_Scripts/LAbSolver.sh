@@ -1,4 +1,3 @@
-
 #!/usr/bin/bash
 # Variables
 i=1
@@ -41,13 +40,12 @@ while [ $totaltasks -ne 0 ];do
       \"max_tokens\": $max_tokens
   }")
     answer=$(echo "$response" | jq '.choices[0].text' | tr -d '"')
-    sed -i ':a;N;$!ba;s/\n/,/g;s/\\//g;s/\t/ /g' task$i$extension
     if [ -z "$answer" ]; then
         echo "No response from API. Check your prompt or try again later."
     else
         echo "$answer" >> "task$i$extension"
     fi
-
+    sed -i 's/\n+/#/g;s/ +//g' task$i$extension
     totaltasks=$((totaltasks-1))
     i=$((i+1))
 done
